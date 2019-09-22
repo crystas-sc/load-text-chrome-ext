@@ -1,0 +1,39 @@
+{
+  "name": "Load ref text",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Load ref text",
+  "homepage_url": "http://cct.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "permissions": [
+    "clipboardRead",
+    "clipboardWrite",
+    "https://*/*"
+  ],
+  "content_scripts": [
+        {
+        "matches": [
+            "http://*/*",
+            "https://*/*"
+            ],
+        "js": ["js/content.js"],
+        "run_at": "document_end"         // pay attention to this line
+        }
+    ],
+    "web_accessible_resources": [
+      "images/*.png",
+      "style/double-rainbow.css",
+      "script/double-rainbow.js",
+      "script/main.js",
+      "res/*"
+    ]
+}
